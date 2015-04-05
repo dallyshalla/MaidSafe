@@ -7,32 +7,31 @@
   <SubProject name="Passport">
     <Dependency name="Common"/>
   </SubProject>
-  <SubProject name="Rudp">
+  <SubProject name="CRUX">
     <Dependency name="Common"/>
-    <Dependency name="Passport"/>
   </SubProject>
   <SubProject name="Routing">
     <Dependency name="Common"/>
     <Dependency name="Passport"/>
-    <Dependency name="Rudp"/>
+    <Dependency name="CRUX"/>
   </SubProject>
   <SubProject name="Nfs">
     <Dependency name="Common"/>
     <Dependency name="Passport"/>
-    <Dependency name="Rudp"/>
+    <Dependency name="CRUX"/>
     <Dependency name="Routing"/>
   </SubProject>
   <SubProject name="Encrypt">
     <Dependency name="Common"/>
     <Dependency name="Passport"/>
-    <Dependency name="Rudp"/>
+    <Dependency name="CRUX"/>
     <Dependency name="Routing"/>
     <Dependency name="Nfs"/>
   </SubProject>
   <SubProject name="Drive">
     <Dependency name="Common"/>
     <Dependency name="Passport"/>
-    <Dependency name="Rudp"/>
+    <Dependency name="CRUX"/>
     <Dependency name="Routing"/>
     <Dependency name="Nfs"/>
     <Dependency name="Encrypt"/>
@@ -40,14 +39,14 @@
   <SubProject name="Vault">
     <Dependency name="Common"/>
     <Dependency name="Passport"/>
-    <Dependency name="Rudp"/>
+    <Dependency name="CRUX"/>
     <Dependency name="Routing"/>
     <Dependency name="Nfs"/>
   </SubProject>
   <SubProject name="VaultManager">
     <Dependency name="Common"/>
     <Dependency name="Passport"/>
-    <Dependency name="Rudp"/>
+    <Dependency name="CRUX"/>
     <Dependency name="Routing"/>
     <Dependency name="Nfs"/>
     <Dependency name="Vault"/>
@@ -55,7 +54,16 @@
   <SubProject name="API">
     <Dependency name="Common"/>
     <Dependency name="Passport"/>
-    <Dependency name="Rudp"/>
+    <Dependency name="CRUX"/>
+    <Dependency name="Routing"/>
+    <Dependency name="Nfs"/>
+    <Dependency name="Encrypt"/>
+    <Dependency name="Drive"/>
+  </SubProject>
+  <SubProject name="Launcher">
+    <Dependency name="Common"/>
+    <Dependency name="Passport"/>
+    <Dependency name="CRUX"/>
     <Dependency name="Routing"/>
     <Dependency name="Nfs"/>
     <Dependency name="Encrypt"/>

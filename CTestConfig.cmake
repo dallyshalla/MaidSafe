@@ -31,12 +31,13 @@ set(CTEST_PROJECT_SUBPROJECTS
     ThirdParty
     Common
     Passport
-    Rudp
+    Crux
     Routing
-    Nfs
+    #Nfs
     Encrypt
-    Drive
+    #Drive
     Vault
     VaultManager
     Api
+    Launcher
     )

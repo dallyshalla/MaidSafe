@@ -5,7 +5,10 @@
 #include "internal/strfunc.h"
 #include <new>		// placement new
 
-#ifdef _MSC_VER
+#if defined(__GNUC__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wold-style-cast"
+#elif defined(_MSC_VER)
 #pragma warning(push)
 #pragma warning(disable : 4127) // conditional expression is constant
 #endif

@@ -130,12 +130,12 @@ target_compile_definitions(cryptopp
 target_compile_options(cryptopp
   PUBLIC
     $<$<BOOL:${MSVC}>:
-        $<$<CONFIG:Release>:/O2 /GL /MD>
+        $<$<CONFIG:Release>:/O2 /MD>
         $<$<CONFIG:Debug>:/Od /MDd /Zi> # /Oi
         $<$<CONFIG:MinSizeRel>:/MD>
-        $<$<CONFIG:RelWithDebInfo>:/O2 /GL /MD /Zi>
+        $<$<CONFIG:RelWithDebInfo>:/O2 /MD /Zi>
     >
-    $<$<BOOL:${UNIX}>:-std=c++11 ${LibCXX}>
+    $<$<BOOL:${UNIX}>:-std=c++11 -pthread ${LibCXX}>
   PRIVATE
     $<$<BOOL:${MSVC}>:/EHsc /W3 /wd4068 /wd4996>
     $<$<BOOL:${UNIX}>:
@@ -162,7 +162,7 @@ target_compile_options(cryptest
 )
 
 if(UNIX)
-  if(${CMAKE_CXX_COMPILER_ID} MATCHES "^(Apple)?Clang$")
+  if(CMAKE_CXX_COMPILER_ID MATCHES "^(Apple)?Clang$")
     if(HAVE_LIBC++)
       set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${LibCXX} -ldl")
     endif()

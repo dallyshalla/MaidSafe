@@ -7,6 +7,11 @@
 #include <cstdlib>	// malloc(), realloc(), free()
 #include <cstring>	// memcpy()
 
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wold-style-cast"
+#endif
+
 ///////////////////////////////////////////////////////////////////////////////
 // RAPIDJSON_NO_INT64DEFINE
 
@@ -521,5 +526,9 @@ enum Type {
 };
 
 } // namespace rapidjson
+
+#if defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
 
 #endif // RAPIDJSON_RAPIDJSON_H_

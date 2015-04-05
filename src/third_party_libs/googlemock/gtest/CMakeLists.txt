@@ -105,13 +105,6 @@ target_compile_definitions(gtest PRIVATE $<$<BOOL:${WIN32}>:MAIDSAFE_WIN32> $<$<
 target_compile_definitions(gtest_no_maidsafe_log PRIVATE $<$<BOOL:${WIN32}>:MAIDSAFE_WIN32> $<$<BOOL:${MSVC}>:BOOST_ALL_NO_LIB>)
 target_link_libraries(gtest maidsafe_common)
 
-if(MSVC)
-  set_target_properties(gtest PROPERTIES
-                        STATIC_LIBRARY_FLAGS_RELEASE " /LTCG "
-                        STATIC_LIBRARY_FLAGS_RELWITHDEBINFO " /LTCG "
-                        STATIC_LIBRARY_FLAGS_RELEASENOINLINE " /LTCG ")
-endif()
-
 cxx_library(gtest_main "${cxx_strict}" src/gtest_main.cc)
 target_include_directories(gtest_main PRIVATE ${gtest_SOURCE_DIR}/include)
 
@@ -213,7 +206,7 @@ endif()
 #   #                       PROPERTIES
 #   #                       COMPILE_DEFINITIONS "GTEST_LINKED_AS_SHARED_LIBRARY=1")
 #
-#   if (NOT MSVC OR NOT MSVC_VERSION EQUAL 1600)
+#   if (NOT MSVC OR NOT MSVC_VERSION EQUAL "1600")
 #     # The C++ Standard specifies tuple_element<int, class>.
 #     # Yet MSVC 10's <utility> declares tuple_element<size_t, class>.
 #     # That declaration conflicts with our own standard-conforming
